@@ -32,6 +32,6 @@ bool valid(const std::string &braces) {
 
 int main(int argc, char const *argv[])
 {
-    std::cout << valid("{()()}{}") << std::endl;
+    std::cout << valid(argv[1]) << std::endl;
     return 0;
 }
