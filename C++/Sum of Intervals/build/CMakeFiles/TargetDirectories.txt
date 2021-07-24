@@ -1,0 +1,3 @@
+/home/thomas/Documents/code-wars/C++/Sum of Intervals/build/CMakeFiles/rebuild_cache.dir
+/home/thomas/Documents/code-wars/C++/Sum of Intervals/build/CMakeFiles/edit_cache.dir
+/home/thomas/Documents/code-wars/C++/Sum of Intervals/build/CMakeFiles/main.dir
