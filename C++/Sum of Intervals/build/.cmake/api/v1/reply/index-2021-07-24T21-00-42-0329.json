@@ -8,25 +8,25 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "/usr/bin/cmake",
-			"cpack" : "/usr/bin/cpack",
-			"ctest" : "/usr/bin/ctest",
-			"root" : "/usr/share/cmake-3.21"
+			"cmake" : "/usr/local/bin/cmake",
+			"cpack" : "/usr/local/bin/cpack",
+			"ctest" : "/usr/local/bin/ctest",
+			"root" : "/usr/local/share/cmake-3.21"
 		},
 		"version" : 
 		{
 			"isDirty" : false,
 			"major" : 3,
 			"minor" : 21,
-			"patch" : 0,
-			"string" : "3.21.0",
-			"suffix" : ""
+			"patch" : 20210718,
+			"string" : "3.21.20210718-g0094d12",
+			"suffix" : "g0094d12"
 		}
 	},
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-b79bdd539c56dc7c99c6.json",
+			"jsonFile" : "codemodel-v2-f038abb979da3e3c9588.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-a2553cc30109d7c8e23f.json",
+			"jsonFile" : "cache-v2-235122820a0d4af988ea.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "toolchains-v1-bb9217e6e04e40eba4a0.json",
+			"jsonFile" : "toolchains-v1-eb0be1c9a063d90a740d.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
@@ -77,7 +77,7 @@
 				"responses" : 
 				[
 					{
-						"jsonFile" : "cache-v2-a2553cc30109d7c8e23f.json",
+						"jsonFile" : "cache-v2-235122820a0d4af988ea.json",
 						"kind" : "cache",
 						"version" : 
 						{
@@ -86,7 +86,7 @@
 						}
 					},
 					{
-						"jsonFile" : "codemodel-v2-b79bdd539c56dc7c99c6.json",
+						"jsonFile" : "codemodel-v2-f038abb979da3e3c9588.json",
 						"kind" : "codemodel",
 						"version" : 
 						{
@@ -95,7 +95,7 @@
 						}
 					},
 					{
-						"jsonFile" : "toolchains-v1-bb9217e6e04e40eba4a0.json",
+						"jsonFile" : "toolchains-v1-eb0be1c9a063d90a740d.json",
 						"kind" : "toolchains",
 						"version" : 
 						{

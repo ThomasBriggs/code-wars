@@ -1,7 +1,7 @@
 [
 {
-  "directory": "/home/thomas/Documents/code-wars/C++/Sum of Intervals/build",
-  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/main.dir/main.cpp.o -c \"/home/thomas/Documents/code-wars/C++/Sum of Intervals/main.cpp\"",
-  "file": "/home/thomas/Documents/code-wars/C++/Sum of Intervals/main.cpp"
+  "directory": "/root/code-wars/C++/Sum of Intervals/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9 -g -std=gnu++2a -o CMakeFiles/main.dir/main.cpp.o -c \"/root/code-wars/C++/Sum of Intervals/main.cpp\"",
+  "file": "/root/code-wars/C++/Sum of Intervals/main.cpp"
 }
 ]

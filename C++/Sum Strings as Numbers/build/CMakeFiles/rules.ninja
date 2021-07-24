@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: Sum of Intervals
+# Project: Sum Strings as Numbers
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/local/bin/cmake --regenerate-during-build -S"/root/code-wars/C++/Sum of Intervals" -B"/root/code-wars/C++/Sum of Intervals/build"
+  command = /usr/local/bin/cmake --regenerate-during-build -S"/root/code-wars/C++/Sum Strings as Numbers" -B"/root/code-wars/C++/Sum Strings as Numbers/build"
   description = Re-running CMake...
   generator = 1
 

@@ -3,43 +3,38 @@
 #include <algorithm>
 #include <iostream>
 
-int sum_intervals(std::vector<std::pair<int, int>> intervals)
+int sum_intervals(std::vector<std::pair<int, int>> v)
 {
-    std::size_t i = 0;
-    std::size_t j = 0;
-    while (i != intervals.size())
+    std::sort(v.begin(), v.end(), [](auto i, auto o)
+              { return i.first == o.first ? i.second < o.second
+                                          : i.first < o.first; });
+    int total = 0;
+    int start = v[0].first;
+    int max = 0;
+    for (auto &&i : v)
     {
-        j = i + 1;
-        auto &pair = intervals.at(i);
-        while (j != intervals.size() - 1)
+        if (i.first != start && i.first > max)
         {
-            auto &comp = intervals.at(j);
-            if (pair.first >= comp.first && pair.second <= comp.second)
-            {
-                pair.first = comp.first;
-                pair.second = comp.second;
-                intervals.erase(intervals.begin() + j);
-            }
-            else if (comp.first <= pair.second)
-            {
-                pair.first = std::min(pair.first, comp.first);
-                pair.second = std::max(pair.second, comp.second);
-                intervals.erase(intervals.begin() + j);
-            }
+            total += max - start;
+            start = i.first;
+            max = i.second;
         }
+        else if (i.second > max)
+            max = i.second;
     }
-
-    return 0;
+    return total += max - start;
 }
 
 int main(int argc, char const *argv[])
 {
-    std::vector<std::pair<int, int>> intervals = {{1, 5}, {3, 10}};
-    sum_intervals(intervals);
-    for (auto &&i : intervals)
-    {
-        std::cout << i.first << i.second << '\n';
-    }
-    
+    std::vector<std::pair<int, int>> intervals = {{-433, -298},
+                                                  {-290, 268},
+                                                  {-268, 172},
+                                                  {-40, 203},
+                                                  {141, 348},
+                                                  {195, 332},
+                                                  {316, 317},
+                                                  {433, 464}};
+    std::cout << sum_intervals(intervals) << '\n';
     return 0;
 }
