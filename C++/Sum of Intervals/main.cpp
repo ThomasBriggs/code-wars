@@ -10,10 +10,10 @@ int sum_intervals(std::vector<std::pair<int, int>> v)
                                           : i.first < o.first; });
     int total = 0;
     int start = v[0].first;
-    int max = 0;
+    int max = v[0].second;
     for (auto &&i : v)
     {
-        if (i.first != start && i.first > max)
+        if (i.first > max)
         {
             total += max - start;
             start = i.first;
