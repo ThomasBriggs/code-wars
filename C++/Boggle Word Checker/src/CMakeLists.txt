@@ -1,0 +1,1 @@
+add_executable(Boggle_Word_Checker main.cpp)
