@@ -61,6 +61,8 @@ posList_t find_pos_of_char(const board_t& board, const char& c)
 
 bool find_word(const board_t& board, const std::pair<int, int> pos, const std::string& word, std::set<std::pair<int, int>> used_spots)
 {
+    if (word.size() == 0)
+        return true;
     auto list = find_valid_pos(board, pos, word[0], used_spots);
     for (auto &&i : list)
     {
