@@ -78,6 +78,8 @@ bool check_word(const std::vector<std::vector<char>>& board, const std::string& 
 {
     std::set<std::pair<int, int>> used_spots;
     auto starting_pos = find_pos_of_char(board, word[0]);
+    if (word.size() == 1 && starting_pos.size() > 0)
+        return true;
     if (starting_pos.size() == 0)
         return false;
     for (auto&& i : starting_pos)
