@@ -84,7 +84,7 @@ bool check_word(const std::vector<std::vector<char>>& board, const std::string& 
         return false;
     for (auto&& i : starting_pos)
     {
-        if(find_word(board, i, word, used_spots))
+        if(find_word(board, i, word.substr(1), used_spots))
             return true;
     }
     return false;
