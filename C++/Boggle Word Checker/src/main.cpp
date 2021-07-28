@@ -8,8 +8,6 @@ int main(int argc, char const* argv[])
                             {'I','A','I','S'},
                             {'B','Y','O','R'} };
     
-    // std::cout << check_word(test_board, "E") << '\n';
-    std::string test = "Hello, World";
-    std::cout << test.substr(7) << '\n';
+    std::cout << check_word(test_board, "LAR") << '\n';
     return 0;
 }
