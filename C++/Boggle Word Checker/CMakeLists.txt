@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 #Enable compiler warnings
-set(ENABLE_WARNINGS ON CACHE BOOL "Enable compiler warnings")
+set(ENABLE_WARNINGS OFF CACHE BOOL "Enable compiler warnings")
 if(${ENABLE_WARNINGS})
     if (MSVC)
         #warning level 4
