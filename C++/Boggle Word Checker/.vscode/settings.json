@@ -47,5 +47,8 @@
         "unordered_set": "cpp",
         "set": "cpp"
     },
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cSpell.words": [
+        "Wextra"
+    ]
 }
