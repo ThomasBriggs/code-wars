@@ -25,7 +25,7 @@ char charAt(const std::pair<int, int>& pos, const board_t& board)
 }
 
 /**
- * For given position, and a list of used positions and a char, it will return a list of availble new positions that contain c from the current position
+ * For given position, a list of used positions and a char, it will return a list of availble new positions that contain c from the current position
  **/
 posList_t find_valid_pos(const board_t& board, const pos_t& currentPos, const char& c, const std::set<pos_t> used_spots)
 {
