@@ -1,12 +1,20 @@
 #include <vector>
 #include <string>
-#include <utility>
-#include <optional>
-#include <set>
+#include <unordered_set>
 
 typedef std::vector<std::vector<char>> board_t;
 typedef std::pair<unsigned int, unsigned int> pos_t;
 typedef std::vector<pos_t> posList_t;
+
+struct pair_hash
+{
+    template <typename T, typename U>
+    std::size_t operator()(const std::pair<T, U>& x) const
+    {
+        return std::hash<T>()(x.first) ^ std::hash<U>()(x.second);
+    }
+};
+
 
 bool valid_pos(pos_t pos, const board_t& board)
 {
@@ -27,7 +35,7 @@ char charAt(const std::pair<int, int>& pos, const board_t& board)
 /**
  * For given position, a list of used positions and a char, it will return a list of availble new positions that contain c from the current position
  **/
-posList_t find_valid_pos(const board_t& board, const pos_t& currentPos, const char& c, const std::set<pos_t> used_spots)
+posList_t find_valid_pos(const board_t& board, const pos_t& currentPos, const char& c, const std::unordered_set<pos_t, pair_hash> used_spots)
 {
     posList_t output;
     for (int y = -1; y <= 1; y++)
@@ -60,24 +68,24 @@ posList_t find_pos_of_char(const board_t& board, const char& c)
     return list;
 }
 
-bool find_word(const board_t& board, const pos_t pos, const std::string& word, std::set<pos_t> used_spots)
+bool find_word(const board_t& board, const pos_t pos, const std::string& word, std::unordered_set<pos_t, pair_hash> used_spots)
 {
     if (word.size() == 0)
         return true;
     auto list = find_valid_pos(board, pos, word[0], used_spots);
-    for (auto &&i : list)
+    for (auto&& i : list)
     {
         used_spots.emplace(pos);
         if (find_word(board, i, word.substr(1), used_spots))
             return true;
         used_spots.erase(--used_spots.end());
     }
-    return false;   
+    return false;
 }
 
 bool check_word(const std::vector<std::vector<char>>& board, const std::string& word)
 {
-    std::set<pos_t> used_spots;
+    std::unordered_set<pos_t, pair_hash> used_spots;
     auto starting_pos = find_pos_of_char(board, word[0]);
     if (word.size() == 1 && starting_pos.size() > 0)
         return true;
@@ -85,7 +93,7 @@ bool check_word(const std::vector<std::vector<char>>& board, const std::string& 
         return false;
     for (auto&& i : starting_pos)
     {
-        if(find_word(board, i, word.substr(1), used_spots))
+        if (find_word(board, i, word.substr(1), used_spots))
             return true;
     }
     return false;

@@ -9,6 +9,5 @@ int main()
                            {'B','Y','O','R'} };
 
     std::cout << check_word(test_board, "BINARAEL") << '\n';
-    int a = 10;
     return 0;
 }
