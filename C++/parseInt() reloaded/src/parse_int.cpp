@@ -1,10 +1,8 @@
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <unordered_map>
-#include <vector>
+#include "parse_int.h"
 
-std::unordered_map<std::string, int> numDict = {
+std::vector<int> toIntList(const std::string& input)
+{
+    std::unordered_map<std::string, int> numDict = {
     {"zero", 0},    {"one", 1},     {"two", 2},     {"three", 3},   {"four", 4},
     {"five", 5},    {"six", 6},     {"seven", 7},   {"eight", 8},   {"nine", 9},
 
@@ -16,18 +14,15 @@ std::unordered_map<std::string, int> numDict = {
 
     {"hundred", 100},   {"thousand", 1000}, {"million", 1000000}
 
-};
+    };
 
-int commaSep(const std::string& input, std::size_t index)
-{
-    return numDict[input.substr(0, index)] + numDict[input.substr(index + 1)];
-}
+    auto commaSep = [&](const std::string& input, std::size_t index)
+    { return numDict[input.substr(0, index)] + numDict[input.substr(index + 1)]; };
 
-std::vector<int> toIntList(const std::string& input)
-{
     std::vector<int> output;
     std::istringstream iss(input);
     std::string buff;
+
     while (std::getline(iss, buff, ' '))
     {
         if (numDict.find(buff) != numDict.end())
@@ -38,26 +33,33 @@ std::vector<int> toIntList(const std::string& input)
     return output;
 }
 
-bool isMult(int input) { return input % 10 == 0 && input != 10; }
-
-int stringToInt(const std::string& input)
+int parse_int(const std::string& input)
 {
-    int total = 0;
     auto list = toIntList(input);
+    if (list.size() == 1) return list[0];
+    auto isMult = [&](int& input) { return input % 10 == 0 && input != 10; };
+    int lastMult = 0;
+    int total = 0;
+    int currentTotal = 0;
+    int last = 0;
     for (auto&& i : list)
     {
-
+        if (isMult(i) && i > lastMult)
+        {
+            lastMult = i;
+            currentTotal = last * i;
+        }
+        else if (isMult(i) && i < lastMult)
+        {
+            lastMult = i;
+            total += currentTotal;
+            currentTotal = last * i;
+        }
+        last = i;
     }
+    if (last == lastMult)
+        total += currentTotal;
+    else
+        total += currentTotal + last;
     return total;
-}
-
-int main(int argc, char const* argv[])
-{
-    std::string word = "seven hundred eighty-three thousand nine hundred and nineteen";
-
-    for (auto&& i : toIntList(word))
-        std::cout << i << ',' << '\n';
-
-    std::cout << stringToInt(word) << '\n';
-    return 0;
 }
