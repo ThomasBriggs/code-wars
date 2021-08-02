@@ -3,6 +3,7 @@
 
 int main(int argc, char const *argv[])
 {
+    TEST_CASE("zero", 0);
     TEST_CASE("one", 1);
     TEST_CASE("two hundred", 200);
     TEST_CASE("two hundred and two", 202);
