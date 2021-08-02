@@ -1,7 +1,7 @@
 #include "parse_int.h"
 #include "TestUtil.h"
 
-int main(int argc, char const *argv[])
+int main()
 {
     TEST_CASE("zero", 0);
     TEST_CASE("one", 1);

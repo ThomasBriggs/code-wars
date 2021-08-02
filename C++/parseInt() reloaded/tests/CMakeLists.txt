@@ -9,3 +9,4 @@ macro(create_test test_name)
 endmacro(create_test)
 
 create_test(FixedNums)
+create_test(RemoveAnd)

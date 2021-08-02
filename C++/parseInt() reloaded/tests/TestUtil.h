@@ -1,8 +1,11 @@
 #pragma once
 
-#define TEST_CASE(STRING, NUM) \
-if (auto output = parse_int(STRING); output != NUM) { \
-    std::cout << "Expected: " << NUM << '\n'; \
-    std::cout << "Actual: " << output << '\n'; \
-    return 1; \
+inline void TEST_CASE(const char* STRING, int NUM)
+{
+    if (auto output = parse_int(STRING); output != NUM) {
+        std::cout << "Expected: " << NUM << '\n';
+        std::cout << "Actual: " << output << '\n';
+        exit(1);
+    }
 }
+
