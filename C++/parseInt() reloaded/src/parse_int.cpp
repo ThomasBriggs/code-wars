@@ -44,22 +44,23 @@ int parse_int(const std::string& input)
     int last = 0;
     for (auto&& i : list)
     {
-        if (isMult(i) && i > lastMult)
+        if (isMult(i))
         {
-            lastMult = i;
-            currentTotal = last * i;
+            if (i > lastMult)
+            {
+                lastMult = i;
+                currentTotal = (currentTotal + last) * i;
+                last = 0;
+            }
+            else
+            {
+                lastMult = i;
+                total += currentTotal;
+                currentTotal = last * i;
+                last = 0;
+            }
         }
-        else if (isMult(i) && i < lastMult)
-        {
-            lastMult = i;
-            total += currentTotal;
-            currentTotal = last * i;
-        }
-        last = i;
+        else last = i;    
     }
-    if (last == lastMult)
-        total += currentTotal;
-    else
-        total += currentTotal + last;
-    return total;
+    return total + currentTotal + last;
 }
