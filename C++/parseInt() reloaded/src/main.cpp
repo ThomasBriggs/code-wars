@@ -3,6 +3,6 @@
 
 int main()
 {
-    std::cout << parse_int("three thousand two hundred");
+    std::cout << parse_int("three thousand two hundred") << '\n';
     return 0;
 }
