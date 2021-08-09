@@ -6,17 +6,17 @@ typedef std::vector<std::vector<char>> board_t;
 typedef std::pair<unsigned int, unsigned int> pos_t;
 typedef std::vector<pos_t> posList_t;
 
-struct pair_hash
+
+struct pos_t_hash
 {
-    template <typename T, typename U>
-    std::size_t operator()(const std::pair<T, U>& x) const
+    std::size_t operator()(const pos_t& x) const
     {
-        return std::hash<T>()(x.first) ^ std::hash<U>()(x.second);
+        return std::hash<unsigned int>()(x.first) ^ std::hash<unsigned int>()(x.second);
     }
 };
+typedef std::unordered_set<pos_t, pos_t_hash> usedspots_t;
 
-
-bool valid_pos(pos_t pos, const board_t& board)
+bool valid_pos(const pos_t& pos, const board_t& board)
 {
     if (pos.first > board.size() - 1 || pos.second > board.size() - 1)
         return false;
@@ -24,7 +24,7 @@ bool valid_pos(pos_t pos, const board_t& board)
         return true;
 }
 
-char charAt(const std::pair<int, int>& pos, const board_t& board)
+char charAt(const pos_t& pos, const board_t& board)
 {
     if (valid_pos(pos, board))
         return board[pos.second][pos.first];
@@ -35,14 +35,14 @@ char charAt(const std::pair<int, int>& pos, const board_t& board)
 /**
  * For given position, a list of used positions and a char, it will return a list of availble new positions that contain c from the current position
  **/
-posList_t find_valid_pos(const board_t& board, const pos_t& currentPos, const char& c, const std::unordered_set<pos_t, pair_hash> used_spots)
+posList_t find_valid_pos(const board_t& board, const pos_t& currentPos, const char& c, const usedspots_t used_spots)
 {
     posList_t output;
     for (int y = -1; y <= 1; y++)
     {
         for (int x = -1; x <= 1; x++)
         {
-            std::pair<int, int> pos = { currentPos.first + x, currentPos.second + y };
+            pos_t pos = { currentPos.first + x, currentPos.second + y };
             if (valid_pos(pos, board) && used_spots.find(pos) == used_spots.end() && charAt(pos, board) == c)
                 if (x != 0 || y != 0)
                     output.emplace_back(pos);
@@ -68,7 +68,7 @@ posList_t find_pos_of_char(const board_t& board, const char& c)
     return list;
 }
 
-bool find_word(const board_t& board, const pos_t pos, const std::string& word, std::unordered_set<pos_t, pair_hash> used_spots)
+bool find_word(const board_t& board, const pos_t pos, const std::string& word, usedspots_t used_spots)
 {
     if (word.size() == 0)
         return true;
@@ -78,14 +78,14 @@ bool find_word(const board_t& board, const pos_t pos, const std::string& word, s
         used_spots.emplace(pos);
         if (find_word(board, i, word.substr(1), used_spots))
             return true;
-        used_spots.erase(--used_spots.end());
+        used_spots.erase(used_spots.find(pos));
     }
     return false;
 }
 
 bool check_word(const std::vector<std::vector<char>>& board, const std::string& word)
 {
-    std::unordered_set<pos_t, pair_hash> used_spots;
+    usedspots_t used_spots;
     auto starting_pos = find_pos_of_char(board, word[0]);
     if (word.size() == 1 && starting_pos.size() > 0)
         return true;

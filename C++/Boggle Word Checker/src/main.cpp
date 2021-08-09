@@ -8,6 +8,6 @@ int main()
                            {'I','A','I','S'},
                            {'B','Y','O','R'} };
 
-    std::cout << check_word(test_board, "BINARAEL") << '\n';
+    std::cout << check_word(test_board, "ROYBINEARACS") << '\n';
     return 0;
 }
