@@ -2,6 +2,14 @@
 #include "ImageRotate.h"
 #include "TestUtil.h"
 
+TEST(RotateImage, 0x0)
+{
+    image img = GenImg(0);
+    image rotated = GenImgRotated(0);
+    rotateImage(img);
+    EXPECT_EQ(img, rotated);
+};
+
 TEST(RotateImage, 1x1)
 {
     image img = GenImg(1);
@@ -51,10 +59,10 @@ TEST(RotateImage, 100x100)
     EXPECT_EQ(img, rotated);
 }
 
-TEST(RotateImage, 10000x10000)
+TEST(RotateImage, 1000x1000)
 {
-    image img = GenImg(10000);
-    image rotated = GenImgRotated(10000);
+    image img = GenImg(1000);
+    image rotated = GenImgRotated(1000);
     rotateImage(img);
     EXPECT_EQ(img, rotated);
 }
