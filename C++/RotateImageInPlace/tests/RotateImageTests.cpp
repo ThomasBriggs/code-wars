@@ -43,18 +43,18 @@ TEST(RotateImage, 6x6)
     EXPECT_EQ(img, rotated);
 };
 
-
-
-TEST(SwapData, Test)
+TEST(RotateImage, 100x100)
 {
-    int a = 1;
-    int b = 2;
-    int c = 3;
-    int d = 4;
-    std::array<int*, 4> pointerArr= {&a, &b, &c, &d};
-    shiftArray(pointerArr);
-    EXPECT_EQ(a, 4);
-    EXPECT_EQ(b, 1);
-    EXPECT_EQ(c, 2);
-    EXPECT_EQ(d, 3);
+    image img = GenImg(100);
+    image rotated = GenImgRotated(100);
+    rotateImage(img);
+    EXPECT_EQ(img, rotated);
+}
+
+TEST(RotateImage, 10000x10000)
+{
+    image img = GenImg(10000);
+    image rotated = GenImgRotated(10000);
+    rotateImage(img);
+    EXPECT_EQ(img, rotated);
 }
