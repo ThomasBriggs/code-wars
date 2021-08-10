@@ -19,7 +19,10 @@ if(ON)
     endif()
 endif()
 
-enable_testing()
-
 add_subdirectory(src)
-add_subdirectory(tests)
+
+
+if (ON)
+    enable_testing()
+    add_subdirectory(tests)
+endif()

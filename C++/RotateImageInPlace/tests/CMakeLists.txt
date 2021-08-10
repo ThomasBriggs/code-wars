@@ -3,9 +3,11 @@ include(GoogleTest)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
-
+link_libraries(GTest::gtest_main)
+add_executable(TestUtilTests TestUtilTests.cpp)
 add_executable(TestSuit test.cpp)
-target_link_libraries(TestSuit GTest::gtest_main)
+
 
 gtest_discover_tests(TestSuit)
+gtest_discover_tests(TestUtilTests)
 

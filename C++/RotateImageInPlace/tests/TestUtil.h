@@ -6,8 +6,10 @@ image GenImg(size_t size)
     image output(size, std::vector<int>(size));
     int count = 1;
     for (auto &&i : output)
-        for (auto &&j : i)
-            j = count++; 
+    {
+        std::iota(i.begin(), i.end(), count);
+        count += size;
+    }
     return output;
 }
 
