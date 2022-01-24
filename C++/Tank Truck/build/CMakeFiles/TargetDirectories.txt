@@ -1,0 +1,5 @@
+/root/code-wars/C++/Tank Truck/build/CMakeFiles/edit_cache.dir
+/root/code-wars/C++/Tank Truck/build/CMakeFiles/rebuild_cache.dir
+/root/code-wars/C++/Tank Truck/build/src/CMakeFiles/main.dir
+/root/code-wars/C++/Tank Truck/build/src/CMakeFiles/edit_cache.dir
+/root/code-wars/C++/Tank Truck/build/src/CMakeFiles/rebuild_cache.dir
