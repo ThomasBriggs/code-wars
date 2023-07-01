@@ -1,0 +1,5 @@
+/home/thomas/Dev/code-wars/C++/How many numbers III?/build/CMakeFiles/edit_cache.dir
+/home/thomas/Dev/code-wars/C++/How many numbers III?/build/CMakeFiles/rebuild_cache.dir
+/home/thomas/Dev/code-wars/C++/How many numbers III?/build/src/CMakeFiles/main.dir
+/home/thomas/Dev/code-wars/C++/How many numbers III?/build/src/CMakeFiles/edit_cache.dir
+/home/thomas/Dev/code-wars/C++/How many numbers III?/build/src/CMakeFiles/rebuild_cache.dir

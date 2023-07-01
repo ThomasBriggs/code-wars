@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/thomas/Dev/code-wars/C++/How many numbers III?/build",
+  "command": "/usr/bin/g++ -g -std=gnu++2a -Wall -Wextra -o src/CMakeFiles/main.dir/main.cpp.o -c \"/home/thomas/Dev/code-wars/C++/How many numbers III?/src/main.cpp\"",
+  "file": "/home/thomas/Dev/code-wars/C++/How many numbers III?/src/main.cpp",
+  "output": "src/CMakeFiles/main.dir/main.cpp.o"
+}
+]

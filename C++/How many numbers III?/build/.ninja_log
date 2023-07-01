@@ -1,0 +1,15 @@
+# ninja log v5
+0	297	1681597888452042299	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+297	509	1681597888662042298	src/main	9eb485be7aefe5ec
+1	659	1681599306562044698	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+659	881	1681599306782044700	src/main	9eb485be7aefe5ec
+0	719	1681599666502043305	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+719	926	1681599666712043306	src/main	9eb485be7aefe5ec
+0	584	1681599674562043475	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+584	788	1681599674772043480	src/main	9eb485be7aefe5ec
+0	717	1681599865602042845	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+717	921	1681599865802042844	src/main	9eb485be7aefe5ec
+0	750	1681600430992044508	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+750	944	1681600431192044509	src/main	9eb485be7aefe5ec
+1	692	1681601300332043554	src/CMakeFiles/main.dir/main.cpp.o	4fbb146adcde1d2a
+692	899	1681601300532043554	src/main	9eb485be7aefe5ec
